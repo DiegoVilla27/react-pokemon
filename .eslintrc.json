@@ -1,0 +1,100 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "jest": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react/recommended",
+        "plugin:react/jsx-runtime" // Esta linea indica que estamos utilizando React 17+ y necesitamos sus nuevas reglas
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "ecmaFeatures": {
+            // Habilitamos el soporte de JSX
+            "jsx": true,
+            "tsx": true
+        }
+    },
+    "plugins": [
+        "@typescript-eslint",
+        "react"
+    ],
+    "rules": {
+        "react/react-in-jsx-scope": "off", // Estas 2 reglas desactivan la necesidad de importar React en los componentes
+        "react/jsx-uses-react": "off",
+        "quotes": [
+            // Regla para usar doble comilla
+            "error",
+            "double",
+            {
+                "avoidEscape": true,
+                "allowTemplateLiterals": true
+            }
+        ],
+        "@typescript-eslint/quotes": [
+            "error",
+            "double",
+            {
+                "avoidEscape": true,
+                "allowTemplateLiterals": true
+            }
+        ],
+        "eqeqeq": [
+            // Regla para igualación estricta (=== OR !==)
+            "error",
+            "smart"
+        ],
+        "no-console": [
+            // Regla para evitar los consoles
+            "error"
+        ],
+        "no-else-return": [
+            // Regla para no permitir else como return
+            "error",
+            {
+                "allowElseIf": true
+            }
+        ],
+        "no-empty": [
+            // Regla para no permitir blocks vacios
+            "error",
+            {
+                "allowEmptyCatch": false
+            }
+        ],
+        "no-extra-semi": [
+            // Regla para no permitir doble punto y coma
+            "error"
+        ],
+        "@typescript-eslint/no-extra-semi": [
+            "error"
+        ],
+        "semi": [
+            // Regla para verificar si tiene punto y comal al final
+            "error",
+            "always",
+            {
+                "omitLastInOneLineBlock": true,
+                "omitLastInOneLineClassBody": true
+            }
+        ],
+        "@typescript-eslint/semi": [
+            "error",
+            "always",
+            {
+                "omitLastInOneLineBlock": true,
+                "omitLastInOneLineClassBody": true
+            }
+        ]
+    },
+    "settings": {
+        "react": {
+            "version": "detect" // Detectamos que version tiene React en el proyecto
+        }
+    }
+}
