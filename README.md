@@ -40,7 +40,7 @@ Install & configure Husky (Git Hooks), Lint Staged (Commits Staged Linter), Comm
   - (Old version) `npx husky add .husky/commit-msg 'npx --no -- commitlint --edit ${1}'`
   - (New version) `echo "npx --no -- commitlint --edit \${1}" > .husky/commit-msg`
 - Create a git hook to do a pre-commit and this run the lint-staged (prettier and eslint) and test before each commit
-  - Script -> `"test:staged": "git diff --cached --name-only -- '*.test.ts' | xargs -I {} npm run test --include={} --browsers=ChromeHeadless --watch=false"`
+  - Script -> `"test:staged": "git diff --cached --name-only -- '*.test.tsx' | xargs -I {} npm run test --include={} --browsers=ChromeHeadless --watch=false"`
     - `git diff` Show changes in files
     - `--cached` Only files in staged
     - `--name-only` Only names of files
@@ -48,12 +48,12 @@ Install & configure Husky (Git Hooks), Lint Staged (Commits Staged Linter), Comm
     - `|` Redirect before command to after command
     - `xargs` Take a list of elements and pass like arguments to another command
     - `-I {}` Save list of elements in {}
-    - `ng test` Exec test
+    - `npm run test` Exec test
     - `--include={}` Include save list of elements to testing each
     - `--browsers=ChromeHeadless` Tests must be proved in browser chrome headless (Exec chrome without GUI)
     - `--watch=false` Don't open browser window
-  - (Old version) `npx husky add .husky/pre-commit "npx lint-staged && git diff --cached --name-only -- '*.test.ts' | xargs -I {} npm run test --include={} --browsers=ChromeHeadless --watch=false"`
-  - (New version) `echo "npx lint-staged && git diff --cached --name-only -- '*.test.ts' | xargs -I {} npm run test --include={} --browsers=ChromeHeadless --watch=false" > .husky/pre-commit`
+  - (Old version) `npx husky add .husky/pre-commit "npx lint-staged && git diff --cached --name-only -- '*.test.tsx' | xargs -I {} npm run test --include={} --browsers=ChromeHeadless --watch=false"`
+  - (New version) `echo "npx lint-staged && git diff --cached --name-only -- '*.test.tsx' | xargs -I {} npm run test --include={} --browsers=ChromeHeadless --watch=false" > .husky/pre-commit`
 - Create a git hook to do a pre-push and this run HERE ANYTHING COMMAND each push
   - (Old version) `npx husky add .husky/pre-push "#HERE ANYTHING COMMAND"`
   - (New version) `echo "#HERE ANYTHING COMMAND" > .husky/pre-push`
@@ -62,20 +62,42 @@ Install & configure Husky (Git Hooks), Lint Staged (Commits Staged Linter), Comm
 
 ## Testing
 Jest to testing application
-- `npm install --save-dev jest @types/jest jest-transform-stub @testing-library/react @testing-library/jest-dom @babel/preset-env @babel/preset-react react-test-renderer`
-- Create file _`jest.config.js`_ and paste this:
+- `npm install --save-dev jest @types/jest jest-transform-stub @testing-library/react @testing-library/jest-dom @babel/preset-env @babel/preset-react react-test-renderer ts-jest jest-environment-jsdom @types/jest @babel/preset-typescript babel-plugin-transform-import-meta @babel/plugin-transform-runtime babel-plugin-transform-vite-meta-env`
+- Create file _`jest.config.cjs`_ and paste this:
   module.exports = {
-    preset: 'ts-jest',
-    testEnvironment: 'jsdom',
+    preset: "ts-jest",
+    testEnvironment: "jsdom",
+    transform: {
+      "^.+\\.(js|jsx|ts|tsx)$": [
+        "ts-jest",
+        {
+          tsconfig: false,
+          useESM: true,
+          babelConfig: true,
+          plugins: ["babel-plugin-transform-vite-meta-env"],
+        }
+      ],
+    }
   };
-- Create file _`babel.config.js`_ and paste this:
-  module.exports = {
-    presets: [
-      '@babel/preset-env',
-      '@babel/preset-react',
-    ],
+- Create file _`babel.config.cjs`_ and paste this:
+  module.exports = function (api) {
+    api.cache(true);
+    const presets = [
+      ["@babel/preset-env", { targets: { node: "current" } }],
+      "@babel/preset-typescript",
+      "@babel/preset-react",
+    ];
+    return {
+      presets,
+      plugins: [
+        "@babel/plugin-transform-runtime",
+        "babel-plugin-transform-import-meta",
+        "babel-plugin-transform-vite-meta-env",
+      ],
+    };
   };
-- Add to pacckage.json script `"test": "jest"`
+
+- Add to package.json script `"test": "jest"`
 
 
 > Developed By: __`Diego Villa`__. - Website: [https://www.cabuweb.com](https://www.cabuweb.com)
