@@ -1,9 +1,9 @@
-import useGeneral from "../../hooks/general";
+import useGeneral from "@hooks/general";
 
 const HomePage = () => {
   useGeneral();
 
-  return <div>HomePage</div>;
+  return <div data-testid="title">HomePage</div>;
 };
 
 export default HomePage;

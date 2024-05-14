@@ -13,8 +13,8 @@
     "preview": "vite preview",
     "prepare": "husky install",
     "test": "jest",
-    "test:coverage": "npm run test --code-coverage",
-    "test:coverage:one": "npm run test --code-coverage --watch --include=src/app/services/pokemon.service.test.ts"
+    "test:coverage": "jest --coverage",
+    "test:coverage:one": "jest --coverage --collectCoverageFrom='src/pages/home/index.tsx' --watch src/pages/home/index.test.tsx"
   },
   "dependencies": {
     "react": "^18.2.0",

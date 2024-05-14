@@ -1,8 +1,10 @@
-import { render } from "@testing-library/react";
 import HomePage from ".";
+import { render } from "@testing-library/react";
 
-test("Home: Renders HomePage", () => {
-  const { getByText } = render(<HomePage />);
-  const helloElement = getByText("HomePage");
-  expect(helloElement.textContent).toEqual("HomePage");
+describe("HomePage", () => {
+  it("Render title", () => {
+    const { getByTestId } = render(<HomePage />);
+    const title: HTMLElement = getByTestId("title");
+    expect(title.textContent).toEqual("HomePage");
+  });
 });

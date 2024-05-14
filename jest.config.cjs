@@ -12,5 +12,15 @@ module.exports = {
         plugins: ["babel-plugin-transform-vite-meta-env"],
       }
     ],
-  }
+  },
+  moduleNameMapper: {
+    '^@components/(.*)$': '<rootDir>/src/components/$1',
+    '^@utils/(.*)$': '<rootDir>/src/utils/$1',
+    '^@helpers/(.*)$': '<rootDir>/src/helpers/$1',
+    '^@hooks/(.*)$': '<rootDir>/src/hooks/$1',
+    '^@pages/(.*)$': '<rootDir>/src/pages/$1',
+    '^@interceptors/(.*)$': '<rootDir>/src/interceptors/$1',
+    '^@config/(.*)$': '<rootDir>/src/config/$1',
+    '^@assets/(.*)$': '<rootDir>/src/assets/$1',
+  },
 };

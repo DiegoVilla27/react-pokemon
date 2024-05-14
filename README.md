@@ -61,7 +61,9 @@ Install & configure Husky (Git Hooks), Lint Staged (Commits Staged Linter), Comm
 > If Husky doesn't work on MacOS, run the command (Within the project): _`chmod ug+x .husky/*`_
 
 ## Testing
+
 Jest to testing application
+
 - `npm install --save-dev jest @types/jest jest-transform-stub @testing-library/react @testing-library/jest-dom @babel/preset-env @babel/preset-react react-test-renderer ts-jest jest-environment-jsdom @types/jest @babel/preset-typescript babel-plugin-transform-import-meta @babel/plugin-transform-runtime babel-plugin-transform-vite-meta-env`
 - Create file _`jest.config.cjs`_ and paste this:
   module.exports = {
@@ -98,6 +100,31 @@ Jest to testing application
   };
 
 - Add to package.json script `"test": "jest"`
+
+## Aliases
+
+Config Alias to import files
+
+- Add in _`tsconfig.json`_:
+  "baseUrl": ".",
+  "paths": {
+    "@/*": ["src/*"],
+    "@components/*": ["src/components/*"],
+    "@otherFolder/*": ["src/otherFolder/*"]
+  }
+- Add in _`vite.config.ts`_
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+      '@components': path.resolve(__dirname, './src/components'),
+      '@otherFolder': path.resolve(__dirname, './src/otherFolder')
+    }
+  }
+- Add in _`jest.config.cjs`_
+  moduleNameMapper: {
+    '^@components/(.*)$': '<rootDir>/src/components/$1',
+    '^@otherFolder/(.*)$': '<rootDir>/src/otherFolder/$1'
+  }
 
 
 > Developed By: __`Diego Villa`__. - Website: [https://www.cabuweb.com](https://www.cabuweb.com)
