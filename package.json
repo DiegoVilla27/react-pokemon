@@ -17,6 +17,7 @@
     "test:coverage:one": "jest --coverage --collectCoverageFrom='src/pages/home/index.tsx' --watch src/pages/home/index.test.tsx"
   },
   "dependencies": {
+    "axios": "^1.6.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

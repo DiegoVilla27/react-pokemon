@@ -1,10 +1,10 @@
 import { useEffect } from "react";
-import { TITLE_APP } from "../../config/general.config";
+import { TITLE_APP } from "@config/general.config";
 
-const useGeneral = () => {
+const changeTitleDocument = () => {
   useEffect(() => {
     document.title = TITLE_APP;
   }, []);
 };
 
-export default useGeneral;
+export { changeTitleDocument };

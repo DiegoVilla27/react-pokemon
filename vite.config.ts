@@ -16,9 +16,11 @@ export default defineConfig({
       "@helpers": path.resolve(__dirname, "./src/helpers"),
       "@hooks": path.resolve(__dirname, "./src/hooks"),
       "@pages": path.resolve(__dirname, "./src/pages"),
-      "@interceptors": path.resolve(__dirname, "./src/interceptors"),
+      "@interceptor": path.resolve(__dirname, "./src/interceptor"),
       "@config": path.resolve(__dirname, "./src/config"),
-      "@assets": path.resolve(__dirname, "./src/assets")
+      "@assets": path.resolve(__dirname, "./src/assets"),
+      "@services": path.resolve(__dirname, "./src/services"),
+      "@interfaces": path.resolve(__dirname, "./src/interfaces")
     }
   }
 });

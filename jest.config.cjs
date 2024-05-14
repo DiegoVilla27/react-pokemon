@@ -19,8 +19,9 @@ module.exports = {
     '^@helpers/(.*)$': '<rootDir>/src/helpers/$1',
     '^@hooks/(.*)$': '<rootDir>/src/hooks/$1',
     '^@pages/(.*)$': '<rootDir>/src/pages/$1',
-    '^@interceptors/(.*)$': '<rootDir>/src/interceptors/$1',
+    '^@interceptor/(.*)$': '<rootDir>/src/interceptor/$1',
     '^@config/(.*)$': '<rootDir>/src/config/$1',
     '^@assets/(.*)$': '<rootDir>/src/assets/$1',
+    '^@services/(.*)$': '<rootDir>/src/services/$1',
   },
 };

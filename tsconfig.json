@@ -33,9 +33,11 @@
       "@helpers/*": ["src/helpers/*"],
       "@hooks/*": ["src/hooks/*"],
       "@pages/*": ["src/pages/*"],
-      "@interceptors/*": ["src/interceptors/*"],
+      "@interceptor/*": ["src/interceptor/*"],
       "@config/*": ["src/config/*"],
-      "@assets/*": ["src/assets/*"]
+      "@assets/*": ["src/assets/*"],
+      "@services/*": ["src/services/*"],
+      "@interfaces/*": ["src/interfaces/*"]
     },
   },
   "include": ["src"],
