@@ -20,7 +20,8 @@ export default defineConfig({
       "@config": path.resolve(__dirname, "./src/config"),
       "@assets": path.resolve(__dirname, "./src/assets"),
       "@services": path.resolve(__dirname, "./src/services"),
-      "@interfaces": path.resolve(__dirname, "./src/interfaces")
+      "@interfaces": path.resolve(__dirname, "./src/interfaces"),
+      "@layout": path.resolve(__dirname, "./src/layout")
     }
   }
 });

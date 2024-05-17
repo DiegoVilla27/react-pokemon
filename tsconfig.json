@@ -37,7 +37,8 @@
       "@config/*": ["src/config/*"],
       "@assets/*": ["src/assets/*"],
       "@services/*": ["src/services/*"],
-      "@interfaces/*": ["src/interfaces/*"]
+      "@interfaces/*": ["src/interfaces/*"],
+      "@layout/*": ["src/layout/*"]
     },
   },
   "include": ["src"],

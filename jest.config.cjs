@@ -23,5 +23,6 @@ module.exports = {
     '^@config/(.*)$': '<rootDir>/src/config/$1',
     '^@assets/(.*)$': '<rootDir>/src/assets/$1',
     '^@services/(.*)$': '<rootDir>/src/services/$1',
+    '^@layout/(.*)$': '<rootDir>/src/layout/$1'
   },
 };
