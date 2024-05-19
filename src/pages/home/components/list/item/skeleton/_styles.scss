@@ -1,0 +1,11 @@
+.poke-item-skeleton {
+  @apply flex
+  justify-between
+  rounded-lg
+  bg-gray-200
+  p-4;
+  &-box {
+    @apply flex
+    gap-2;
+  }
+}

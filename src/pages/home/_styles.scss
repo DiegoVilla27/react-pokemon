@@ -1,0 +1,8 @@
+@import "./components/styles";
+
+.home {
+  @apply p-5 flex flex-col gap-4 relative overflow-x-hidden;
+  &-bg {
+    @apply w-80 absolute -right-20 -top-20 opacity-50 z-0;
+  }
+}

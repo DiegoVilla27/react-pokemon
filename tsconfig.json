@@ -38,7 +38,8 @@
       "@assets/*": ["src/assets/*"],
       "@services/*": ["src/services/*"],
       "@interfaces/*": ["src/interfaces/*"],
-      "@layout/*": ["src/layout/*"]
+      "@layout/*": ["src/layout/*"],
+      "@redux/*": ["src/redux/*"]
     },
   },
   "include": ["src"],

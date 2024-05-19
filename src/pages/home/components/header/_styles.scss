@@ -1,0 +1,13 @@
+@import "./components/change-generation/styles";
+
+.header {
+  @apply flex
+    justify-between
+    items-center;
+  h1 {
+    @apply font-montserrat-b
+      text-5xl
+      sm:text-6xl
+      md:text-8xl;
+  }
+}

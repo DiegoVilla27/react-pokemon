@@ -5,10 +5,11 @@
   flex 
   justify-center 
   items-center
-  w-full
-  h-full
+  w-screen
+  h-screen
   bg-black
-  bg-opacity-80;
+  bg-opacity-80
+  z-50;
   &-content {
     @apply perspective-1000
     rounded-full

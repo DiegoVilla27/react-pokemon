@@ -21,7 +21,8 @@ export default defineConfig({
       "@assets": path.resolve(__dirname, "./src/assets"),
       "@services": path.resolve(__dirname, "./src/services"),
       "@interfaces": path.resolve(__dirname, "./src/interfaces"),
-      "@layout": path.resolve(__dirname, "./src/layout")
+      "@layout": path.resolve(__dirname, "./src/layout"),
+      "@redux": path.resolve(__dirname, "./src/redux")
     }
   }
 });

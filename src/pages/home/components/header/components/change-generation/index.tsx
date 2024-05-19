@@ -9,8 +9,11 @@ export const ChangeGeneration = ({ generation, setGeneration }: IProps) => {
   const toggleGeneration = () => setGeneration(generation === 1 ? 2 : 1);
 
   return (
-    <button onClick={() => toggleGeneration()}>
-      Gen {generation === 1 ? 2 : 1}
+    <button
+      onClick={() => toggleGeneration()}
+      className="change-generation"
+    >
+      Gen. {generation === 1 ? 2 : 1}
     </button>
   );
 };

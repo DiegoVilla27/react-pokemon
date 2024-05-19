@@ -7,9 +7,9 @@ interface IProps {
   setGeneration: Dispatch<SetStateAction<number>>;
 }
 
-export const Header = ({ generation, setGeneration }: IProps) => {
+export const PokeHeader = ({ generation, setGeneration }: IProps) => {
   return (
-    <div>
+    <div className="header">
       <h1>{TITLE_APP}</h1>
       <ChangeGeneration
         generation={generation}

@@ -1,0 +1,189 @@
+@tailwind base;@tailwind components;@tailwind utilities;@layer utilities{.text-shadow{text-shadow:2px 2px 0px rgba(0,0,0,0.5)}}@layer utilities{.perspective-1000{perspective:1000px}}@layer utilities{.rotate-x-70{transform:rotateX(70deg)}.rotate-y-70{transform:rotateY(70deg)}}@font-face{font-family:"Montserrat-Bold";src:local("sans-serif"),url("/assets/fonts/montserrat/Montserrat-Bold.woff2") format("woff2"),url("/assets/fonts/montserrat/Montserrat-Bold.woff") format("woff");font-display:swap}@font-face{font-family:"Montserrat-SemiBold";src:local("sans-serif"),url("/assets/fonts/montserrat/Montserrat-SemiBold.woff2") format("woff2"),url("/assets/fonts/montserrat/Montserrat-SemiBold.woff") format("woff");font-display:swap}@font-face{font-family:"Montserrat-Regular";src:local("sans-serif"),url("/assets/fonts/montserrat/Montserrat-Regular.woff2") format("woff2"),url("/assets/fonts/montserrat/Montserrat-Regular.woff") format("woff");font-display:swap}@font-face{font-family:"Montserrat-Light";src:local("sans-serif"),url("/assets/fonts/montserrat/Montserrat-Light.woff2") format("woff2"),url("/assets/fonts/montserrat/Montserrat-Light.woff") format("woff");font-display:swap}@font-face{font-family:"Montserrat-Thin";src:local("sans-serif"),url("/assets/fonts/montserrat/Montserrat-Thin.woff2") format("woff2"),url("/assets/fonts/montserrat/Montserrat-Thin.woff") format("woff");font-display:swap}body{@apply overflow-x-hidden bg-slate-100 text-[16px] font-montserrat-r}input,select,textarea{@apply outline-none border-0}input:focus,select:focus,textarea:focus{@apply outline-none border-0}.spinner{@apply fixed 
+  top-0 
+  left-0 
+  flex 
+  justify-center 
+  items-center
+  w-screen
+  h-screen
+  bg-black
+  bg-opacity-80
+  z-50}.spinner-content{@apply perspective-1000
+    rounded-full
+    w-12
+    h-12
+    text-white
+    rotate-45}.spinner-content:before,.spinner-content:after{animation:1s spin linear infinite;@apply content-[""]
+      block
+      absolute
+      top-0
+      left-0
+      w-[inherit]
+      h-[inherit]
+      rounded-full
+      rotate-x-70}.spinner-content:after{animation-delay:0.4s;@apply rotate-y-70
+      text-red-500}@keyframes spin{0%,100%{box-shadow:0.2em 0px 0 0px currentcolor}12%{box-shadow:0.2em 0.2em 0 0 currentcolor}25%{box-shadow:0 0.2em 0 0px currentcolor}37%{box-shadow:-0.2em 0.2em 0 0 currentcolor}50%{box-shadow:-0.2em 0 0 0 currentcolor}62%{box-shadow:-0.2em -0.2em 0 0 currentcolor}75%{box-shadow:0px -0.2em 0 0 currentcolor}87%{box-shadow:0.2em -0.2em 0 0 currentcolor}}.error-msg{@apply text-red-500
+  font-montserrat-l}.modal{@apply fixed
+  h-screen
+  w-screen
+  backdrop-blur-sm
+  top-0
+  left-0
+  bg-black/[.8]
+  z-20
+  flex
+  justify-center
+  items-start
+  p-4
+  overflow-y-auto
+  overflow-x-hidden
+  sm:p-4
+  sm:items-center}.modal-card{@apply bg-slate-100
+    p-2
+    rounded-3xl
+    overflow-hidden
+    relative
+    w-full
+    sm:min-w-[470px]
+    sm:max-w-[576px]
+    sm:w-auto
+    sm:p-4}.modal-card-bg{@apply w-[576px]
+      rounded-b-[50%]
+      absolute
+      left-1/2
+      -translate-x-1/2
+      top-0
+      h-[180px]
+      sm:h-[250px]
+      sm:w-[676px]}.modal-card-header{@apply relative z-10}.modal-card-header img{@apply ml-auto
+        h-10
+        cursor-pointer}.modal-card-content{@apply flex
+      flex-col
+      items-center
+      relative
+      z-10}.modal-card-content img{@apply w-48
+        object-contain
+        sm:w-72}.modal-card-content h1{@apply text-3xl
+        capitalize
+        font-montserrat-b
+        sm:text-4xl}.modal-card-content-types{@apply flex 
+        gap-2
+        h-fit
+        mt-2
+        sm:h-10
+        sm:mt-4
+        sm:gap-4}.modal-card-content-types div{@apply px-2
+          py-1
+          text-sm
+          rounded-md
+          text-white
+          capitalize
+          flex 
+          gap-2
+          items-center
+          sm:px-4
+          sm:py-2
+          sm:text-base}.modal-card-content-types div img{@apply w-4 
+            h-4
+            sm:w-6
+            sm:h-6}.modal-card-content-stats{@apply mt-2
+        px-4
+        w-full
+        flex
+        flex-col
+        gap-1
+        sm:mt-8}.modal-card-content-stats-content{@apply flex
+          flex-row
+          gap-4
+          items-center}.modal-card-content-stats-content-name{@apply font-montserrat-s
+            capitalize
+            flex-1
+            text-sm
+            sm:text-base}.modal-card-content-stats-content-value{@apply font-montserrat-l 
+            w-9
+            text-sm
+            sm:text-base}.modal-card-content-stats-content-progress{@apply flex-[2]
+            w-full
+            bg-slate-200
+            rounded-full
+            flex
+            items-center
+            justify-start
+            p-1
+            box-content}.modal-card-content-stats-content-progress div{@apply h-3
+              rounded-full}.modal-card-footer{@apply relative
+      z-10
+      flex
+      flex-col
+      mt-2
+      text-center
+      sm:mt-4}.modal-card-footer hr{@apply mx-4}.modal-card-footer-items{@apply flex
+        gap-5
+        mb-2
+        justify-center
+        items-center
+        flex-wrap}.modal-card-footer-items img{@apply h-[80px]
+          sm:h-24}.change-generation{@apply bg-slate-300
+      px-4 py-2
+      rounded-lg
+      cursor-pointer
+      relative
+      z-[1];box-shadow:0 0 0 0 #fff;transform:scale(1);animation:pulse 1.5s infinite}@keyframes pulse{0%{transform:scale(0.95);box-shadow:0 0 0 0 rgba(255,255,255,0.7)}70%{transform:scale(1);box-shadow:0 0 0 10px rgba(255,255,255,0)}100%{transform:scale(0.95);box-shadow:0 0 0 0 rgba(255,255,255,0)}}.header{@apply flex
+    justify-between
+    items-center}.header h1{@apply font-montserrat-b
+      text-5xl
+      sm:text-6xl
+      md:text-8xl}.search{@apply grid grid-cols-12 gap-5}.search-form{@apply relative 
+    col-span-12
+    md:col-span-6
+    lg:col-span-4}.search-form-input input{@apply w-full 
+        h-10 
+        rounded-full 
+        border-[0.5px] 
+        pl-10 
+        pr-4 
+        shadow-sm 
+        bg-slate-200 
+        text-slate-600
+        shadow-md}.search-form-input input::placeholder{@apply text-slate-400}.search-form-img{@apply w-5 h-5 object-contain absolute top-[11px] left-3}.pokemon{@apply relative 
+  rounded-3xl
+  cursor-pointer
+  p-6
+  hover:scale-90
+  transition-all
+  delay-100
+  ease-linear}.pokemon-info{@apply relative z-10 text-left flex flex-col gap-2}.pokemon-info small{@apply capitalize text-4xl font-bold;@apply text-black font-montserrat-l}.pokemon-info h1{@apply capitalize text-4xl font-bold;@apply text-white font-montserrat-b text-shadow}.pokemon-info-stats{@apply flex 
+      gap-4 
+      h-10}.pokemon-info-stats div{@apply px-4 
+        py-2
+        bg-black/[.5]
+        rounded-md
+        text-white
+        font-montserrat-r
+        capitalize}.pokemon-info-types{@apply flex gap-4 h-10}.pokemon-info-types div{@apply px-4
+        py-2
+        rounded-md
+        text-white
+        capitalize
+        flex gap-2}.pokemon-info-types div img{@apply w-6 h-6}.pokemon-img{@apply absolute
+    right-0
+    top-0
+    w-48
+    h-48
+    transition-all
+    delay-100
+    ease-linear
+    group-hover:scale-150}.pokemon-bubble{@apply absolute 
+    top-0 
+    right-0 
+    bg-white/[.2] 
+    w-48 
+    h-48 
+    rounded-full}.poke-item-skeleton{@apply flex
+  justify-between
+  rounded-lg
+  bg-gray-200
+  p-4}.poke-item-skeleton-box{@apply flex
+    gap-2}.pokemons{@apply grid grid-cols-12 gap-5}.pokemons-item{@apply col-span-12
+    md:col-span-6
+    lg:col-span-4}.home{@apply p-5 flex flex-col gap-4 relative overflow-x-hidden}.home-bg{@apply w-80 absolute -right-20 -top-20 opacity-50 z-0}

@@ -1,6 +1,10 @@
 // TAILWIND
 @import "./libraries/tailwind/tailwind";
+// FONTS
+@import "./fonts/fonts.scss";
 // BASE
 @import "./base/base";
 // COMPONENTS
 @import "../../components/styles";
+// PAGES
+@import "../../pages/styles";

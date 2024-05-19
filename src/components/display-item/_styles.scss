@@ -1,0 +1,163 @@
+.modal {
+  @apply fixed
+  h-screen
+  w-screen
+  backdrop-blur-sm
+  top-0
+  left-0
+  bg-black/[.8]
+  z-20
+  flex
+  justify-center
+  items-start
+  p-4
+  overflow-y-auto
+  overflow-x-hidden
+  sm:p-4
+  sm:items-center;
+  &-card {
+    @apply bg-slate-100
+    p-2
+    rounded-3xl
+    overflow-hidden
+    relative
+    w-full
+    sm:min-w-[470px]
+    sm:max-w-[576px]
+    sm:w-auto
+    sm:p-4;
+    &-bg {
+      @apply w-[576px]
+      rounded-b-[50%]
+      absolute
+      left-1/2
+      -translate-x-1/2
+      top-0
+      h-[180px]
+      sm:h-[250px]
+      sm:w-[676px];
+    }
+    &-header {
+      @apply relative z-10;
+      img {
+        @apply ml-auto
+        h-10
+        cursor-pointer;
+      }
+    }
+    &-content {
+      @apply flex
+      flex-col
+      items-center
+      relative
+      z-10;
+      img {
+        @apply w-48
+        object-contain
+        sm:w-72;
+      }
+      h1 {
+        @apply text-3xl
+        capitalize
+        font-montserrat-b
+        sm:text-4xl;
+      }
+      &-types {
+        @apply flex 
+        gap-2
+        h-fit
+        mt-2
+        sm:h-10
+        sm:mt-4
+        sm:gap-4;
+        div {
+          @apply px-2
+          py-1
+          text-sm
+          rounded-md
+          text-white
+          capitalize
+          flex 
+          gap-2
+          items-center
+          sm:px-4
+          sm:py-2
+          sm:text-base;
+          img {
+            @apply w-4 
+            h-4
+            sm:w-6
+            sm:h-6;
+          }
+        }
+      }
+      &-stats {
+        @apply mt-2
+        px-4
+        w-full
+        flex
+        flex-col
+        gap-1
+        sm:mt-8;
+        &-content {
+          @apply flex
+          flex-row
+          gap-4
+          items-center;
+          &-name {
+            @apply font-montserrat-s
+            capitalize
+            flex-1
+            text-sm
+            sm:text-base;
+          }
+          &-value {
+            @apply font-montserrat-l 
+            w-9
+            text-sm
+            sm:text-base;
+          }
+          &-progress {
+            @apply flex-[2]
+            w-full
+            bg-slate-200
+            rounded-full
+            flex
+            items-center
+            justify-start
+            p-1
+            box-content;
+            div {
+              @apply h-3
+              rounded-full;
+            }
+          }
+        }
+      }
+    }
+    &-footer {
+      @apply relative
+      z-10
+      flex
+      flex-col
+      mt-2
+      text-center
+      sm:mt-4;
+      hr {
+        @apply mx-4;
+      }
+      &-items {
+        @apply flex
+        gap-5
+        mb-2
+        justify-center
+        items-center
+        flex-wrap;
+        img {
+          @apply h-[80px]
+          sm:h-24;
+        }
+      }
+    }
+  }
+}

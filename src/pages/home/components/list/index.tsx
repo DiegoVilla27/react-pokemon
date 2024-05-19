@@ -1,20 +1,22 @@
-import { IPokemonEntry } from "@/interfaces/pokemon";
-import { PokemonItem } from "./item";
+import { IPokemon } from "@/interfaces/pokemon";
+import { PokeItem } from "./item";
 
 interface IProps {
-  data: IPokemonEntry[];
+  pokemons: IPokemon[];
 }
 
-export const PokemonList = ({ data }: IProps) => {
+export const PokeList = ({ pokemons }: IProps) => {
   return (
-    <ul>
-      {data &&
-        data.map((pokemon: IPokemonEntry) => (
-          <PokemonItem
-            key={pokemon.entry_number}
-            pokemon={pokemon}
-          />
+    <div className="pokemons">
+      {pokemons &&
+        pokemons.map((pokemon: IPokemon) => (
+          <div
+            className="pokemons-item"
+            key={pokemon.name}
+          >
+            <PokeItem pokemon={pokemon} />
+          </div>
         ))}
-    </ul>
+    </div>
   );
 };
