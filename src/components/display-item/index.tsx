@@ -41,7 +41,7 @@ export const PokeModal = () => {
             ))}
           </div>
           <div
-            className={`modal-card-content-stats ${(pokemon!.evolutions && pokemon!.evolutions.length <= 1) ?? "mb-2"}`}
+            className={`modal-card-content-stats ${pokemon!.evolutions && pokemon!.evolutions.length <= 1 ? "mb-2" : ""}`}
           >
             {info!.stats.map((stats: Stat) => (
               <div
