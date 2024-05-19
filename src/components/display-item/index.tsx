@@ -4,28 +4,11 @@ import { IconType } from "@/helpers/icon-type";
 import { NameStats } from "@/helpers/name-stats";
 import { PercentageStats } from "@/helpers/percentage-stats";
 import { IPokemonApi, Stat, Type } from "@/interfaces/pokemon-api";
-import { togglePokemonAction } from "@/redux/pokemon/pokemonAction";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@redux/store";
+import { usePokeModal } from "./hooks";
 
 export const PokeModal = () => {
-  const ICON_CLOSE: string = "/assets/icons/close.svg";
-
-  const dispatch = useDispatch();
-
-  const closePokemonModal = () => {
-    dispatch(togglePokemonAction(null));
-  };
-
-  const pokemon = useSelector(
-    (store: RootState) => store.pokemonSelected.pokemon
-  );
-
-  const { info } = pokemon;
-  const { sprites } = info!;
-  const { other } = sprites;
-  const { home } = other!;
-  const { front_default } = home;
+  const { pokemon, ICON_CLOSE, closePokemonModal, front_default, info } =
+    usePokeModal();
 
   return (
     <div className="modal">
@@ -43,11 +26,11 @@ export const PokeModal = () => {
         <div className="modal-card-content">
           <img
             src={front_default}
-            alt={`Avatar ${pokemon.name}`}
+            alt={`Avatar ${pokemon!.name}`}
           />
-          <h1>{pokemon.name}</h1>
+          <h1>{pokemon!.name}</h1>
           <div className="modal-card-content-types">
-            {info.types.map((type: Type) => (
+            {info!.types.map((type: Type) => (
               <div
                 key={type.type.name}
                 style={{ backgroundColor: ColorType(type.type.name) }}
@@ -58,9 +41,9 @@ export const PokeModal = () => {
             ))}
           </div>
           <div
-            className={`modal-card-content-stats ${(pokemon.evolutions && pokemon.evolutions.length <= 1) ?? "mb-2"}`}
+            className={`modal-card-content-stats ${(pokemon!.evolutions && pokemon!.evolutions.length <= 1) ?? "mb-2"}`}
           >
-            {info.stats.map((stats: Stat) => (
+            {info!.stats.map((stats: Stat) => (
               <div
                 key={stats.stat.name}
                 className="modal-card-content-stats-content"
@@ -75,7 +58,7 @@ export const PokeModal = () => {
                   <div
                     style={{
                       width: PercentageStats(stats.base_stat),
-                      backgroundImage: GradientBackground(pokemon.color!)
+                      backgroundImage: GradientBackground(pokemon!.color!)
                     }}
                   ></div>
                 </div>
@@ -83,17 +66,17 @@ export const PokeModal = () => {
             ))}
           </div>
         </div>
-        {pokemon.evolution_data && pokemon.evolution_data.length > 1 ? (
+        {pokemon!.evolution_data && pokemon!.evolution_data.length > 1 ? (
           <div className="modal-card-footer">
             <hr />
             <div
-              className={`modal-card-footer-items ${pokemon.evolutions.length > 3 ? "!flex-nowrap !justify-start overflow-x-auto" : ""}`}
+              className={`modal-card-footer-items ${pokemon!.evolutions!.length > 3 ? "!flex-nowrap !justify-start overflow-x-auto" : ""}`}
             >
-              {pokemon.evolution_data.map((evolution: IPokemonApi) => (
+              {pokemon!.evolution_data.map((evolution: IPokemonApi) => (
                 <img
                   key={evolution.sprites.other!.home.front_default}
                   src={evolution.sprites.other!.home.front_default}
-                  alt={`Evolution ${pokemon.name}`}
+                  alt={`Evolution ${pokemon!.name}`}
                 />
               ))}
             </div>
