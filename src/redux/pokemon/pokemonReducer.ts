@@ -22,6 +22,8 @@ export const pokemonReducer: Reducer<
 ) => {
   switch (action.type) {
     case pokemonType.toggle:
+      if (state.show) document.body.style.overflowY = "auto";
+      else document.body.style.overflowY = "hidden";
       return {
         ...state,
         pokemon: action.payload.pokemon,
