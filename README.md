@@ -11,6 +11,12 @@ Npm - Version 10.5.0
 
 Run `npm run dev` for a dev server and navigate to `http://localhost:3000/`. The application will automatically reload if you change any of the source files.
 
+## Errors
+
+> If Husky doesn't work on MacOS, run the command (Within the project): _`chmod ug+x .husky/*`_
+
+> If you need see prettier console objects in testing, use this: `console.log(JSON.stringify(obj, undefined, 2));`
+
 ## Commits
 
 Structure for commits:
@@ -40,9 +46,10 @@ Install & configure Husky (Git Hooks), Lint Staged (Commits Staged Linter), Comm
   - (Old version) `npx husky add .husky/commit-msg 'npx --no -- commitlint --edit ${1}'`
   - (New version) `echo "npx --no -- commitlint --edit \${1}" > .husky/commit-msg`
 - Create a git hook to do a pre-commit and this run the lint-staged (prettier and eslint) and test before each commit
-  - Script -> `"test:staged": "git diff --cached --name-only -- '*.test.tsx' | xargs -I {} npm run test --include={} --browsers=ChromeHeadless --watch=false"`
+  - Script -> `"test:staged": "git diff --cached --diff-filter=d --name-only -- '*.test.tsx' | xargs -I {} npm run test --include={} --browsers=ChromeHeadless --watch=false"`
     - `git diff` Show changes in files
     - `--cached` Only files in staged
+    - `--diff-filter=d` Ignore files spec deleted
     - `--name-only` Only names of files
     - `'*.test.ts'` Only files test.ts
     - `|` Redirect before command to after command
@@ -52,13 +59,11 @@ Install & configure Husky (Git Hooks), Lint Staged (Commits Staged Linter), Comm
     - `--include={}` Include save list of elements to testing each
     - `--browsers=ChromeHeadless` Tests must be proved in browser chrome headless (Exec chrome without GUI)
     - `--watch=false` Don't open browser window
-  - (Old version) `npx husky add .husky/pre-commit "npx lint-staged && git diff --cached --name-only -- '*.test.tsx' | xargs -I {} npm run test --include={} --browsers=ChromeHeadless --watch=false"`
-  - (New version) `echo "npx lint-staged && git diff --cached --name-only -- '*.test.tsx' | xargs -I {} npm run test --include={} --browsers=ChromeHeadless --watch=false" > .husky/pre-commit`
+  - (Old version) `npx husky add .husky/pre-commit "npx lint-staged && git diff --cached --diff-filter=d --name-only -- '*.test.tsx' | xargs -I {} npm run test --include={} --browsers=ChromeHeadless --watch=false"`
+  - (New version) `echo "npx lint-staged && git diff --cached --diff-filter=d --name-only -- '*.test.tsx' | xargs -I {} npm run test --include={} --browsers=ChromeHeadless --watch=false" > .husky/pre-commit`
 - Create a git hook to do a pre-push and this run HERE ANYTHING COMMAND each push
   - (Old version) `npx husky add .husky/pre-push "#HERE ANYTHING COMMAND"`
   - (New version) `echo "#HERE ANYTHING COMMAND" > .husky/pre-push`
-
-> If Husky doesn't work on MacOS, run the command (Within the project): _`chmod ug+x .husky/*`_
 
 ## Testing
 
