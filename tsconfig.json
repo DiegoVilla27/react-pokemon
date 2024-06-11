@@ -39,7 +39,7 @@
       "@services/*": ["src/services/*"],
       "@interfaces/*": ["src/interfaces/*"],
       "@layout/*": ["src/layout/*"],
-      "@redux/*": ["src/redux/*"]
+      "@store/*": ["src/store/*"]
     },
   },
   "include": ["src"],

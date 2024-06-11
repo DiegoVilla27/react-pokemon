@@ -22,7 +22,7 @@ export default defineConfig({
       "@services": path.resolve(__dirname, "./src/services"),
       "@interfaces": path.resolve(__dirname, "./src/interfaces"),
       "@layout": path.resolve(__dirname, "./src/layout"),
-      "@redux": path.resolve(__dirname, "./src/redux")
+      "@store": path.resolve(__dirname, "./src/store")
     }
   }
 });

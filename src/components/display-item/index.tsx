@@ -70,7 +70,7 @@ export const PokeModal = () => {
           <div className="modal-card-footer">
             <hr />
             <div
-              className={`modal-card-footer-items ${pokemon!.evolutions!.length > 3 ? "!flex-nowrap !justify-start overflow-x-auto" : ""}`}
+              className={`modal-card-footer-items ${pokemon!.evolution_data!.length > 3 ? "!flex-nowrap !justify-start overflow-x-auto" : ""}`}
             >
               {pokemon!.evolution_data.map((evolution: IPokemonApi) => (
                 <img

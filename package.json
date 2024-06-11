@@ -14,20 +14,20 @@
     "prepare": "husky install",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "test:coverage:one": "jest --coverage --collectCoverageFrom='src/pages/home/index.tsx' --watch src/pages/home/index.test.tsx"
+    "test:coverage:one": "jest --coverage --collectCoverageFrom='src/pages/home/index.tsx' --watch src/pages/home/index.test.tsx",
+    "clean": "rm -rf node_modules && rm -rf package-lock.json && npm cache clean --force"
   },
   "dependencies": {
     "@hookform/error-message": "^2.0.1",
     "@hookform/resolvers": "^3.4.0",
+    "@reduxjs/toolkit": "^2.2.5",
     "axios": "^1.6.8",
-    "color.js": "^1.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.51.4",
     "react-loading-skeleton": "^3.4.0",
     "react-redux": "^9.1.2",
     "redux": "^5.0.1",
-    "redux-thunk": "^3.1.0",
     "yup": "^1.4.0"
   },
   "devDependencies": {
@@ -44,9 +44,6 @@
     "@types/jest": "^29.5.12",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
-    "@types/react-redux": "^7.1.33",
-    "@types/redux": "^3.6.0",
-    "@types/redux-thunk": "^2.1.0",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "@vitejs/plugin-react": "^4.2.1",
@@ -63,7 +60,6 @@
     "jest-environment-jsdom": "^29.7.0",
     "jest-transform-stub": "^2.0.0",
     "lint-staged": "^15.2.2",
-    "node-sass": "^9.0.0",
     "postcss": "^8.4.38",
     "prettier": "^3.2.5",
     "react-test-renderer": "^18.3.1",

@@ -11,9 +11,9 @@ interface IProps {
 }
 
 export const PokeItem = ({ pokemon }: IProps) => {
-  const { pokemonFull, selectPokemon } = usePokeItem(pokemon);
+  const { selectPokemon } = usePokeItem();
 
-  if (pokemonFull) {
+  if (pokemon) {
     const { info } = pokemon;
     const { sprites } = info!;
     const { other } = sprites;
@@ -23,9 +23,9 @@ export const PokeItem = ({ pokemon }: IProps) => {
       <div
         className="pokemon group"
         style={{
-          backgroundImage: GradientBackground(pokemonFull?.color)
+          backgroundImage: GradientBackground(pokemon?.color)
         }}
-        onClick={() => selectPokemon(pokemonFull)}
+        onClick={() => selectPokemon(pokemon)}
       >
         <div className="pokemon-info">
           <small>#{info!.id}</small>

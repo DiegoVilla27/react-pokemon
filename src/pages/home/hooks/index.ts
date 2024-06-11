@@ -1,8 +1,8 @@
-import { IPokemon } from "@/interfaces/pokemon";
-import { useGetPokemonsSvc } from "@/services/pokemons";
+import { IPokemon } from "@interfaces/pokemon";
+import { useGetPokemonsSvc } from "@services/pokemons-aws";
+import { RootState } from "@store/store";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { RootState } from "@redux/store";
 
 export const useHome = () => {
   const [generation, setGeneration] = useState<number>(1);

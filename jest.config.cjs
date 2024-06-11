@@ -24,6 +24,6 @@ module.exports = {
     '^@assets/(.*)$': '<rootDir>/src/assets/$1',
     '^@services/(.*)$': '<rootDir>/src/services/$1',
     '^@layout/(.*)$': '<rootDir>/src/layout/$1',
-    '^@redux/(.*)$': '<rootDir>/src/redux/$1'
+    '^@store/(.*)$': '<rootDir>/src/store/$1'
   },
 };
